@@ -1,14 +1,17 @@
 // Smooth reveal on scroll
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+function revealOnScroll() {
   reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
-});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll); // ⭐ THIS IS THE FIX
 
 
 // Toggle project details
